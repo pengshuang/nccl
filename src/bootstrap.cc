@@ -40,7 +40,7 @@ ncclResult_t bootstrapNetInit() {
           return ncclSystemError;
         }
       } else {
-        setenv("NCCL_SOCKET_IFNAME", "bond0", 1)
+        setenv("NCCL_SOCKET_IFNAME", "bond0", 1);
         int nIfs = ncclFindInterfaces(bootstrapNetIfName, &bootstrapNetIfAddr, MAX_IF_NAME_SIZE, 1);
         if (nIfs <= 0) {
           WARN("Bootstrap : no socket interface found");
@@ -54,7 +54,7 @@ ncclResult_t bootstrapNetInit() {
       ncclSocketToString(&bootstrapNetIfAddr, line+strlen(line));
       INFO(NCCL_INIT, "Bootstrap[new] : Using%s", line);
       bootstrapNetInitDone = 1;
-      setenv("NCCL_SOCKET_IFNAME", "bond0,enp88s0np0,enp114s0np0", 1)
+      setenv("NCCL_SOCKET_IFNAME", "bond0,enp88s0np0,enp114s0np0", 1);
     }
     pthread_mutex_unlock(&bootstrapNetLock);
   }
