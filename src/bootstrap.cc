@@ -51,7 +51,7 @@ ncclResult_t bootstrapNetInit() {
       strcpy(bootstrapNetIfName, "bond0");
       sprintf(line, " %s:", bootstrapNetIfName);
       ncclSocketToString(&bootstrapNetIfAddr, line+strlen(line));
-      INFO(NCCL_INIT, "Bootstrap : Using%s", line);
+      INFO(NCCL_INIT, "Bootstrap[new] : Using%s", line);
       bootstrapNetInitDone = 1;
     }
     pthread_mutex_unlock(&bootstrapNetLock);
