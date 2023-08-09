@@ -47,6 +47,7 @@ ncclResult_t bootstrapNetInit() {
         }
       }
       char line[SOCKET_NAME_MAXLEN+MAX_IF_NAME_SIZE+2];
+      // line 强制设置成 bond0
       sprintf(line, " %s:", bootstrapNetIfName);
       ncclSocketToString(&bootstrapNetIfAddr, line+strlen(line));
       INFO(NCCL_INIT, "Bootstrap : Using%s", line);
